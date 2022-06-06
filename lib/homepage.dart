@@ -121,7 +121,15 @@ class _HomePageState extends State<HomePage> {
           ]
         ),
 
-        body: _pages[_selectedIndex],
+        body: Container(
+          decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/background.jpg"),
+            fit: BoxFit.cover,
+          ),
+        ),
+          child: _pages[_selectedIndex]
+          ),
         
 
     );

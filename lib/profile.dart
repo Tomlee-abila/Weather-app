@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:weather_app/weather.dart';
-import 'homepage.dart';
 
 
 class Profile extends StatefulWidget {
@@ -26,91 +23,100 @@ class _ProfileState extends State<Profile> {
       //       IconButton( onPressed: () {}, icon: const Icon(Icons.share)),],
       //     ),
 
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          SizedBox(height: 40.0,),
-          
-          Center(
-            child: CircleAvatar(
-              backgroundImage: AssetImage('assets/Tom.webp'),
-              radius: 40.0,
-            ),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/background.jpg"),
+            fit: BoxFit.cover,
           ),
+        ),
+        
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            SizedBox(height: 40.0,),
+            
+            const Center(
+              child: CircleAvatar(
+                backgroundImage: AssetImage('assets/Tom.webp'),
+                radius: 40.0,
+              ),
+            ),
 
  //divider             
-          Divider(
-            height: 60.0,
-            color: Colors.grey[800],
-          ),
+            Divider(
+              height: 20.0,
+              color: Colors.grey[800],
+            ),
 
 //name    
-          SizedBox(height: 40.0,),          
-          Row(
-            children: [
-              Text(
-                'NAME: ',
-                style: TextStyle(
-                  color: Colors.grey,
-                  letterSpacing: 2.0,
-                  fontSize: 28.0,
+            SizedBox(height: 30.0,),          
+            Row(
+              children: [
+                Text(
+                  'NAME: ',
+                  style: TextStyle(
+                    color: Colors.black,
+                    
+                    fontSize: 25.0,
+                  ),
                 ),
-              ),
-              
-              Text(
-                'Tom Cruise',
-                style: TextStyle(
-                  color: Colors.amberAccent[200],
-                  letterSpacing: 2.0,
-                  fontSize: 25.0,
-                  fontWeight: FontWeight.bold,
+                
+                Text(
+                  'Tom Cruise',
+                  style: TextStyle(
+                    color: Colors.blue,
+                    letterSpacing: 2.0,
+                    fontSize: 25.0,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-            ],
-          ),
+              ],
+            ),
 
 //Birthday
-          SizedBox(height: 30.0,),
-          Row(
-            children: [
-              Text(
-                'BIRTHDAY: ',
-                style: TextStyle(
-                  color: Colors.grey,
-                  letterSpacing: 2.0,
-                  fontSize: 28.0,
+            const SizedBox(height: 30.0,),
+            Row(
+              children: [
+                Text(
+                  'BIRTHDAY: ',
+                  style: TextStyle(
+                    color: Colors.black,
+                    
+                    fontSize: 25.0,
+                  ),
                 ),
-              ),
-              
-              Text(
-                '3rd July 1962',
-                style: TextStyle(
-                  color: Colors.amberAccent[200],
-                  letterSpacing: 2.0,
-                  fontSize: 25.0,
-                  fontWeight: FontWeight.bold,
+                
+                Text(
+                  '3rd July 1962',
+                  style: TextStyle(
+                    color: Colors.blue,
+                    letterSpacing: 2.0,
+                    fontSize: 25.0,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-            ],
-          ),
-          SizedBox(height: 250.0),
+              ],
+            ),
+            SizedBox(height: 370.0),
 
 
-          Divider(
-            height: 60.0,
-            color: Colors.grey[800],
-          ),
+            Divider(
+              height: 10.0,
+              color: Colors.grey[800],
+            ),
 
 //Version          
-          Text(
-            '@ version 1.0.2',
-            style: TextStyle(
-              color: Colors.grey[400],
-              fontSize: 18.0,
-              letterSpacing: 1.0,
-            ),
-          )
-        ],
+            Text(
+              '@ version 1.0.2',
+              style: TextStyle(
+                color: Colors.grey[400],
+                fontSize: 18.0,
+                letterSpacing: 1.0,
+              ),
+            )
+          ],
+        ),
       ),
 
     );

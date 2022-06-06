@@ -7,47 +7,187 @@ class Weather extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      body: Center(child: Text('Weather'))
-      ,      
-      //   body: Column(
-      //   children: [
-          
-      //     Row(
-      //           children: [
-      //             TextField(
-      //                 decoration: InputDecoration(
-      //                   hintText: 'Email',
-      //                 ),
-      //               ),
+      body:Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/background.jpg"),
+            fit: BoxFit.cover,
+          ),
+        ),
+        
+        padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+        child: Column(
+          children: <Widget>[
 
-      //             Icon(Icons.search, color: Colors.deepPurple,),
-      //           ],
-      //         ),
-      //       SizedBox(height: 30.0,),
-      //     Row(
-      //       children: [
-      //         Text(
-      //           'BIRTHDAY: ',
-      //           style: TextStyle(
-      //             color: Colors.grey,
-      //             letterSpacing: 2.0,
-      //             fontSize: 28.0,
-      //           ),
-      //         ),
+            //city name
+            const SizedBox(height: 30),
+            const Padding(
+                    padding: EdgeInsets.fromLTRB(0, 0, 100, 0),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: TextField(
+                        decoration: InputDecoration(
+                          // border: InputBorder.none,
+                          hintText: 'enter city name',
+                          suffixIcon: Icon(Icons.search),
+                        ),
+                      ),
+                    ),
+                  ),
+
+            //Place
+            const SizedBox(height: 30),
+            Row(
+            children: [
+              const Text(
+                'Place: ',
+                style: TextStyle(
+                  color: Colors.black,
+                  
+                  fontSize: 25.0,
+                ),
+              ),
               
-      //         Text(
-      //           '3rd July 1962',
-      //           style: TextStyle(
-      //             color: Colors.amberAccent[200],
-      //             letterSpacing: 2.0,
-      //             fontSize: 25.0,
-      //             fontWeight: FontWeight.bold,
-      //           ),
-      //         ),
-      //       ],
-      //     ),
-      //   ],
-      // ),
+              Text(
+                'London',
+                style: TextStyle(
+                  color: Colors.blue,
+                  letterSpacing: 2.0,
+                  fontSize: 25.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+
+          //Description
+          const SizedBox(height: 30),
+            Row(
+            children: [
+              const Text(
+                'Description: ',
+                style: TextStyle(
+                  color: Colors.black,
+                  
+                  fontSize: 25.0,
+                ),
+              ),
+              
+              Text(
+                'Clouds',
+                style: TextStyle(
+                  color: Colors.blue,
+                  letterSpacing: 2.0,
+                  fontSize: 25.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+
+          //Temperature
+          const SizedBox(height: 30),
+            Row(
+            children: [
+              const Text(
+                'Temperature: ',
+                style: TextStyle(
+                  color: Colors.black,
+                  
+                  fontSize: 25.0,
+                ),
+              ),
+              
+              Text(
+                '20.53',
+                style: TextStyle(
+                  color: Colors.blue,
+                  letterSpacing: 2.0,
+                  fontSize: 25.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+
+          //Perceived
+          const SizedBox(height: 30),
+            Row(
+            children: [
+              const Text(
+                'Perceived: ',
+                style: TextStyle(
+                  color: Colors.black,
+                  
+                  fontSize: 25.0,
+                ),
+              ),
+              
+              Text(
+                '20.49',
+                style: TextStyle(
+                  color: Colors.blue,
+                  letterSpacing: 2.0,
+                  fontSize: 25.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+
+          //Pressure
+          const SizedBox(height: 30),
+            Row(
+            children: [
+              const Text(
+                'Pressure: ',
+                style: TextStyle(
+                  color: Colors.black,
+                  
+                  fontSize: 25.0,
+                ),
+              ),
+              
+              Text(
+                '1022',
+                style: TextStyle(
+                  color: Colors.blue,
+                  letterSpacing: 2.0,
+                  fontSize: 25.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+
+          //Humidity
+          const SizedBox(height: 30),
+            Row(
+            children: [
+              const Text(
+                'Humidity: ',
+                style: TextStyle(
+                  color: Colors.black,
+                  
+                  fontSize: 25.0,
+                ),
+              ),
+              
+              Text(
+                '71',
+                style: TextStyle(
+                  color: Colors.blue,
+                  letterSpacing: 2.0,
+                  fontSize: 25.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+            ],         
+        
+        ),
+      ),
 
     );
     
