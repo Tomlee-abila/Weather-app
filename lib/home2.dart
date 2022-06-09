@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class homePage extends StatefulWidget {
   const homePage({Key? key}) : super(key: key);
@@ -12,16 +10,42 @@ class homePage extends StatefulWidget {
 class _homePageState extends State<homePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/background.jpg"),
-            fit: BoxFit.cover,
+    final height = MediaQuery.of(context).size.height;
+    final widht = MediaQuery.of(context).size.height;
+    return Stack(
+      children: [
+        Positioned(
+          bottom: height / 2.4,
+          child: Image.asset(
+            'assets/new-york.jpg',
+            height: height,
+            ),
+          ),
+        Positioned(
+          bottom: 0,
+          child: Container(
+            height: height / 2.4,
+            width: widht,
+            color: Color(0xFF2D2C35),
+          )
+          ),
+        Scaffold(
+          backgroundColor: Colors.black45,
+          body: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 18),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: 50,),
+                Text(
+                  'Hello Siti',
+                  style: TextStyle(fontSize: 100),
+                ),
+              ]
+              ),
           ),
         ),
-        child: Center(child: Text('Home'),)
-        ),
-    );
+      ],
+      );
   }
 }

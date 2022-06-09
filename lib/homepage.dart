@@ -5,7 +5,6 @@ import 'package:weather_app/weather.dart';
 
 import 'home2.dart';
 
-
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -44,18 +43,27 @@ class _HomePageState extends State<HomePage> {
     
         return Scaffold(
         resizeToAvoidBottomInset : false,
+        extendBodyBehindAppBar: true,
+        extendBody: true,
 
         appBar: AppBar(
-          backgroundColor: Colors.deepPurple[300],
-          elevation: 4,
+          backgroundColor: Colors.transparent,
+          elevation: 0,
           title: Center(child: Text(word)),
           actions: [ 
-            IconButton( onPressed: () {}, icon: const Icon(Icons.share)),],
+            IconButton( 
+              onPressed: () {}, 
+              icon: const CircleAvatar(
+                backgroundImage: AssetImage('assets/Tom.webp'),
+                backgroundColor: Colors.black26,
+              )
+            )
+          ],
           ),
 
         drawer: Drawer(
             child: Container(
-              color: Colors.deepPurple[200],
+              color: Colors.transparent,
               child: ListView(
                 
                 
@@ -108,7 +116,7 @@ class _HomePageState extends State<HomePage> {
       
         bottomNavigationBar: GNav(
           selectedIndex: _selectedIndex,
-          backgroundColor: const Color(0xFF9575CD),
+          backgroundColor: Colors.transparent,
           color: Colors.white,
           gap: 8,
           activeColor: Colors.white,
@@ -123,15 +131,7 @@ class _HomePageState extends State<HomePage> {
           ]
         ),
 
-        body: Container(
-          decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/background.jpg"),
-            fit: BoxFit.cover,
-          ),
-        ),
-          child: _pages[_selectedIndex]
-          ),
+        body: _pages[_selectedIndex],
         
 
     );
