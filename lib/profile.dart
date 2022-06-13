@@ -16,7 +16,7 @@ class _ProfileState extends State<Profile> {
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Color(0xEE2D2F49),
         // appBar: AppBar(
         //     backgroundColor: Colors.deepPurple[300],
         //     elevation: 4,

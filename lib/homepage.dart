@@ -82,7 +82,7 @@ class _HomePageState extends State<HomePage> {
      _determinePosition();
     
     return Scaffold(     
-      backgroundColor: Color(0xE10C93C0), 
+      backgroundColor: Color(0xE7382E4E), 
       resizeToAvoidBottomInset : false,
       extendBodyBehindAppBar: true,
       extendBody: true,
@@ -160,7 +160,7 @@ class _HomePageState extends State<HomePage> {
     
       bottomNavigationBar: GNav(
         selectedIndex: _selectedIndex,
-        backgroundColor: Colors.black26,
+        backgroundColor: Color.fromARGB(140, 44, 82, 109),
         color: Colors.white,
         gap: 8,
         activeColor: Colors.white,

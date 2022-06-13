@@ -61,97 +61,212 @@ class _homePageState extends State<homePage> {
     return SafeArea(
       child: Stack(
         children: [
-          Positioned(
-            bottom: height / 3,
-            child: Image.asset(
-              'assets/new-york.jpg',
-              height: height,
-              fit: BoxFit.fill,
+          Container(
+            color: Color(0xEE2D2F49),
+            height: height,
+            width: widht,
+            padding: const EdgeInsets.all(20.0),
+
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  padding: EdgeInsets.fromLTRB(50, 0, 50, 0),
+                  child: Column(
+                    children: [
+                      Text(
+                        'Location',
+                        style: TextStyle(
+                          fontSize: 30.0,
+                          fontWeight: FontWeight.w900,
+                        ),
+                        ),
+
+                        Padding(
+                          padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
+                          child: Text(
+                            '58',
+                            style: TextStyle(
+                              color: Colors.purple,
+                              fontSize: 40.0,
+                              fontWeight: FontWeight.w900,
+                              fontFamily: 'Pacifico'
+                            ),
+                            ),
+
+                          ),
+                    ],
+                  )
+                ),
+                    
+                
+              ]
               ),
-            ),
+
+          ),
           
     
-          Positioned(
-            bottom: 0,
-            child: Container(
-              height: MediaQuery.of(context).size.height / 2,
-              width: MediaQuery.of(context).size.width,
-              // color: Color.fromARGB(255, 204, 255, 204),
+        Positioned(
+        bottom: 0,
+        child: Container(
+          height: MediaQuery.of(context).size.height / 2,
+          width: MediaQuery.of(context).size.width,
+          // color: Color.fromARGB(255, 204, 255, 204),
 
-            decoration: new BoxDecoration(
-              color: Color.fromARGB(255, 204, 255, 204),
-              borderRadius: new BorderRadius.only(
-                topLeft: const Radius.circular(40.0),
-                topRight: const Radius.circular(40.0),
-              )
-            ),
-            
-              
-              child: Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: ListView(
-                  children: [
-                    ListTile(
-                      leading:FaIcon(FontAwesomeIcons.locationDot),
-                      title: Text(
-                        'Place',
-                        // style: TextStyle(color: Colors.black),
-                        ),
-                      subtitle: Text(place),
-                    ),
+        decoration: new BoxDecoration(
+          color: Color(0xE7382E4E),
+          borderRadius: new BorderRadius.only(
+            topLeft: const Radius.circular(40.0),
+            topRight: const Radius.circular(40.0),
+          )
+        ),
+        
           
-                    ListTile(
-                      leading: FaIcon(FontAwesomeIcons.cloud),
-                      title: Text(
-                        'Description',
-                        // style: TextStyle(color: Colors.black),
-                        ),
-                      subtitle: Text(descr),
+          child: Expanded(
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: ListView(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    color: Color(0x844D3E3E),
+                    border: Border.all(
+                      color: Color(0x844D3E3E),                         
                     ),
-          
-                    ListTile(
-                      leading: FaIcon(FontAwesomeIcons.temperatureHalf),
-                      title: Text(
-                        'Temperature',
-                        // style: TextStyle(color: Colors.black),
-                        ),
-                      subtitle: Text(tempe+'\u00B0'+'C'),
-                    ),
-          
-                    ListTile(
-                      leading: FaIcon(FontAwesomeIcons.temperatureHalf),
-                      title: Text(
-                        'Perceived',
-                        // style: TextStyle(color: Colors.black),
-                        ),
-                      subtitle: Text('52'+'\u00B0'+'C'),
-                    ),
-          
-                    ListTile(
-                      leading: FaIcon(FontAwesomeIcons.tachometer),
-                      title: Text(
-                        'Pressure',
-                        // style: TextStyle(color: Colors.black),
-                        ),
-                      subtitle: Text(press),
-                    ),
-          
-                    ListTile(
-                      leading: FaIcon(FontAwesomeIcons.tint),
-                      title: Text(
-                        'Humidity',
-                        // style: TextStyle(color: Colors.black),
-                        ),
-                      subtitle: Text(hum),
-                    ),
-                  ],
+                    borderRadius: BorderRadius.all(Radius.circular(60))
+                  ),
+                  child: ListTile(
+                    leading:FaIcon(
+                      color: Colors.white,
+                      FontAwesomeIcons.locationDot),
+                    title: Text(
+                        style: TextStyle(color: Colors.white),
+                      'Place',
+                      // style: TextStyle(color: Colors.black),
+                      ),
+                    subtitle: Text(
+                        style: TextStyle(color: Colors.white),place),
+                  ),
                 ),
-              ),
-                        ),
+      
+                SizedBox(height: 10,),
+                Container(                      
+                  decoration: BoxDecoration(
+                    color: Color(0x844D3E3E),
+                    border: Border.all(
+                      color: Color(0x844D3E3E),                         
+                    ),
+                    borderRadius: BorderRadius.all(Radius.circular(60))
+                  ),
+                  child: ListTile(
+                    leading: FaIcon(                          
+                      color: Colors.white,
+                      FontAwesomeIcons.cloud),
+                    title: Text(
+                      style: TextStyle(color: Colors.white),
+                      'Description',                          
+                      ),
+                    subtitle: Text(
+                      style: TextStyle(color: Colors.white),                          
+                      descr),
+                  ),
+                ),
+      
+                SizedBox(height: 10,),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Color(0x844D3E3E),
+                    border: Border.all(
+                      color: Color(0x844D3E3E),                         
+                    ),
+                    borderRadius: BorderRadius.all(Radius.circular(60))
+                  ),
+                  child: ListTile(
+                    leading: FaIcon(
+                        color: Colors.white,FontAwesomeIcons.temperatureHalf),
+                    title: Text(
+                        style: TextStyle(color: Colors.white),
+                      'Temperature',
+                      // style: TextStyle(color: Colors.black),
+                      ),
+                    subtitle: Text(
+                        style: TextStyle(color: Colors.white),tempe+'\u00B0'+'C'),
+                  ),
+                ),
+      
+                SizedBox(height: 10,),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Color(0x844D3E3E),
+                    border: Border.all(
+                      color: Color(0x844D3E3E),                         
+                    ),
+                    borderRadius: BorderRadius.all(Radius.circular(60))
+                  ),
+                  child: ListTile(
+                    leading: FaIcon(
+                        color: Colors.white,FontAwesomeIcons.temperatureHalf),
+                    title: Text(
+                        style: TextStyle(color: Colors.white),
+                      'Perceived',
+                      // style: TextStyle(color: Colors.black),
+                      ),
+                    subtitle: Text(
+                        style: TextStyle(color: Colors.white),'52'+'\u00B0'+'C'),
+                  ),
+                ),
+      
+                SizedBox(height: 10,),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Color(0x844D3E3E),
+                    border: Border.all(
+                      color: Color(0x844D3E3E),                         
+                    ),
+                    borderRadius: BorderRadius.all(Radius.circular(60))
+                  ),
+                  child: ListTile(
+                    leading: FaIcon(
+                        color: Colors.white,FontAwesomeIcons.tachometer),
+                    title: Text(
+                        style: TextStyle(color: Colors.white),
+                      'Pressure',
+                      // style: TextStyle(color: Colors.black),
+                      ),
+                    subtitle: Text(
+                        style: TextStyle(color: Colors.white),press),
+                  ),
+                ),
+      
+                SizedBox(height: 10,),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Color(0x844D3E3E),
+                    border: Border.all(
+                      color: Color(0x844D3E3E),                         
+                    ),
+                    borderRadius: BorderRadius.all(Radius.circular(60))
+                  ),
+                  child: ListTile(
+                    leading: FaIcon(
+                        color: Colors.white,FontAwesomeIcons.tint),
+                    title: Text(
+                        style: TextStyle(color: Colors.white),
+                      'Humidity',
+                      // style: TextStyle(color: Colors.black),
+                      ),
+                    subtitle: Text(
+                        style: TextStyle(color: Colors.white),hum),
+                  ),
+                ),
+              ],
             ),
           ),
-  
+                    ),
+        ),
+      ),
+
         ],
         ),
     );
