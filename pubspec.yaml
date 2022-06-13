@@ -83,7 +83,7 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
 fonts:
-   - family: Pacifico #IndieFlower is the name of the font
+   - family: Pacifico-Regular #IndieFlower is the name of the font
      fonts:
        - asset: fonts/Pacifico-Regular.ttf #fonts/IndieFlower-Regular.ttf is the directory of the font
 

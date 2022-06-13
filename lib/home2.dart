@@ -12,6 +12,17 @@ class homePage extends StatefulWidget {
 
 class _homePageState extends State<homePage> {
 
+  var lat = '';
+  var long = '';
+
+  void getCurrentLocation()async{
+    Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+    setState(() {
+      lat = "$position.latitude";
+      long = "$position.longitude";
+    });
+  }
+
   Future<Position> _determinePosition() async {
   bool serviceEnabled;
   LocationPermission permission;
@@ -55,6 +66,8 @@ class _homePageState extends State<homePage> {
 
 
     // _determinePosition();
+    getCurrentLocation();
+    
 
     final height = MediaQuery.of(context).size.height;
     final widht = MediaQuery.of(context).size.height;
@@ -89,13 +102,25 @@ class _homePageState extends State<homePage> {
                             '58',
                             style: TextStyle(
                               color: Colors.purple,
-                              fontSize: 40.0,
+                              fontSize: 100.0,
                               fontWeight: FontWeight.w900,
-                              fontFamily: 'Pacifico'
+                              fontFamily: 'Pacifico-Regular'
                             ),
                             ),
 
                           ),
+                          
+                          Text(
+                            lat,
+                            style: TextStyle(
+                              color: Color.fromARGB(123, 155, 39, 176),
+                              fontSize: 14.0,
+                              fontWeight: FontWeight.w900,
+                              fontFamily: 'Pacifico-Regular'
+                            ),
+                            )
+
+
                     ],
                   )
                 ),
