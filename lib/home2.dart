@@ -52,143 +52,109 @@ class _homePageState extends State<homePage> {
   @override
   Widget build(BuildContext context) {
 
+
+
     // _determinePosition();
 
     final height = MediaQuery.of(context).size.height;
     final widht = MediaQuery.of(context).size.height;
-    var inputBorder = OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white),
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(30.0),
+    return SafeArea(
+      child: Stack(
+        children: [
+          Positioned(
+            bottom: height / 3,
+            child: Image.asset(
+              'assets/new-york.jpg',
+              height: height,
+              fit: BoxFit.fill,
+              ),
+            ),
+          
+    
+          Positioned(
+            bottom: 0,
+            child: Container(
+              height: MediaQuery.of(context).size.height / 2,
+              width: MediaQuery.of(context).size.width,
+              // color: Color.fromARGB(255, 204, 255, 204),
+
+            decoration: new BoxDecoration(
+              color: Color.fromARGB(255, 204, 255, 204),
+              borderRadius: new BorderRadius.only(
+                topLeft: const Radius.circular(40.0),
+                topRight: const Radius.circular(40.0),
+              )
+            ),
+            
+              
+              child: Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: ListView(
+                  children: [
+                    ListTile(
+                      leading:FaIcon(FontAwesomeIcons.locationDot),
+                      title: Text(
+                        'Place',
+                        // style: TextStyle(color: Colors.black),
                         ),
-                      );
-    return Stack(
-      children: [
-        // Positioned(
-        //   bottom: height / 2.4,
-        //   child: Image.asset(
-        //     'assets/new-york.jpg',
-        //     height: height,
-        //     fit: BoxFit.fill,
-        //     ),
-        //   ),
-        // Positioned(
-        //   bottom: 0,
-        //   child: Container(
-        //     height: height / 2.4,
-        //     width: widht,
-        //     color: Colors.white,
-        //   )
-        //   ),
-        Scaffold(
-          backgroundColor: Colors.black45,
-          body: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 18),
-            child: DefaultTextStyle(
-              style: TextStyle(color: Colors.white),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: 100,),
-                  Text(
-                    'Hello',
-                    style: TextStyle(fontSize: 30),
-                  ),
-                  Text(
-                    'Check the weather by the city',
-                    style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w700,
+                      subtitle: Text(place),
                     ),
-                  ),
-
-                  SizedBox(height: 35),
-                  TextField(
-                    decoration: InputDecoration(
-                      border: inputBorder,
-                      enabledBorder: inputBorder,
-                      focusedBorder: inputBorder,
-                      hintText: 'Search city',
-                      hintStyle: TextStyle(
-                        color: Colors.white,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w600
-                      ),
-                      suffixIcon: Icon(Icons.search, color: Colors.white,)
-
+          
+                    ListTile(
+                      leading: FaIcon(FontAwesomeIcons.cloud),
+                      title: Text(
+                        'Description',
+                        // style: TextStyle(color: Colors.black),
+                        ),
+                      subtitle: Text(descr),
                     ),
-                  ),
-
-                          Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: ListView(
-                    children: [
-                      ListTile(
-                        leading:FaIcon(FontAwesomeIcons.locationDot),
-                        title: Text(
-                          'Place',
-                          // style: TextStyle(color: Colors.black),
-                          ),
-                        trailing: Text(place),
-                      ),
-
-                      ListTile(
-                        leading: FaIcon(FontAwesomeIcons.cloud),
-                        title: Text(
-                          'Description',
-                          // style: TextStyle(color: Colors.black),
-                          ),
-                        trailing: Text(descr),
-                      ),
-
-                      ListTile(
-                        leading: FaIcon(FontAwesomeIcons.temperatureHalf),
-                        title: Text(
-                          'Temperature',
-                          // style: TextStyle(color: Colors.black),
-                          ),
-                        trailing: Text(tempe+'\u00B0'+'C'),
-                      ),
-
-                      ListTile(
-                        leading: FaIcon(FontAwesomeIcons.temperatureHalf),
-                        title: Text(
-                          'Perceived',
-                          // style: TextStyle(color: Colors.black),
-                          ),
-                        trailing: Text('52'+'\u00B0'+'C'),
-                      ),
-
-                      ListTile(
-                        leading: FaIcon(FontAwesomeIcons.tachometer),
-                        title: Text(
-                          'Pressure',
-                          // style: TextStyle(color: Colors.black),
-                          ),
-                        trailing: Text(press),
-                      ),
-
-                      ListTile(
-                        leading: FaIcon(FontAwesomeIcons.tint),
-                        title: Text(
-                          'Humidity',
-                          // style: TextStyle(color: Colors.black),
-                          ),
-                        trailing: Text(hum),
-                      ),
-                    ],
-                  ),
+          
+                    ListTile(
+                      leading: FaIcon(FontAwesomeIcons.temperatureHalf),
+                      title: Text(
+                        'Temperature',
+                        // style: TextStyle(color: Colors.black),
+                        ),
+                      subtitle: Text(tempe+'\u00B0'+'C'),
+                    ),
+          
+                    ListTile(
+                      leading: FaIcon(FontAwesomeIcons.temperatureHalf),
+                      title: Text(
+                        'Perceived',
+                        // style: TextStyle(color: Colors.black),
+                        ),
+                      subtitle: Text('52'+'\u00B0'+'C'),
+                    ),
+          
+                    ListTile(
+                      leading: FaIcon(FontAwesomeIcons.tachometer),
+                      title: Text(
+                        'Pressure',
+                        // style: TextStyle(color: Colors.black),
+                        ),
+                      subtitle: Text(press),
+                    ),
+          
+                    ListTile(
+                      leading: FaIcon(FontAwesomeIcons.tint),
+                      title: Text(
+                        'Humidity',
+                        // style: TextStyle(color: Colors.black),
+                        ),
+                      subtitle: Text(hum),
+                    ),
+                  ],
                 ),
               ),
-        
-                ]
-                ),
+                        ),
             ),
           ),
+  
+        ],
         ),
-      ],
-      );
+    );
       
   }
 

@@ -81,100 +81,101 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
      _determinePosition();
     
-    return Scaffold(
-    resizeToAvoidBottomInset : false,
-    extendBodyBehindAppBar: true,
-    extendBody: true,
+    return Scaffold(     
+      backgroundColor: Color(0xE10C93C0), 
+      resizeToAvoidBottomInset : false,
+      extendBodyBehindAppBar: true,
+      extendBody: true,
 
-    appBar: AppBar(
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-      title: Center(child: Text(word)),
-      actions: [ 
-        IconButton( 
-          onPressed: () {}, 
-          icon: const CircleAvatar(
-            backgroundImage: AssetImage('assets/Tom.webp'),
-            backgroundColor: Colors.black26,
+      appBar: AppBar(
+        backgroundColor: Colors.black45,
+        elevation: 0,
+        title: Center(child: Text(word)),
+        actions: [ 
+          IconButton( 
+            onPressed: () {}, 
+            icon: const CircleAvatar(
+              backgroundImage: AssetImage('assets/Tom.webp'),
+              backgroundColor: Colors.black26,
+            )
           )
-        )
-      ],
-      ),
+        ],
+        ),
 
-    drawer: Drawer(
-        child: Container(
-          color: Colors.transparent,
-          child: ListView(
-            
-            
-
-            children: [
-              const DrawerHeader(
-                child: ImageIcon(
-                  AssetImage("assets/weather2.png"),
-                  // color: Color(0xFF3A5A98), 
-                  ),
-              ),
+      drawer: Drawer(
+          child: Container(
+            color: Colors.transparent,
+            child: ListView(
+              
               
 
-              ListTile(
-                leading: const Icon(Icons.home),
-                title: const Text(
-                  'Home',
-                  style: TextStyle(fontSize: 20),
-                  ),
-                onTap: () {                   
-                  _navigationBottonBar(0);
-                  // Scaffold.of(context).closeDrawer();
-                  },
-              ),
+              children: [
+                const DrawerHeader(
+                  child: ImageIcon(
+                    AssetImage("assets/weather2.png"),
+                    // color: Color(0xFF3A5A98), 
+                    ),
+                ),
+                
 
-              ListTile(
-                leading: const Icon(Icons.filter_drama),         
-                title: const Text(
-                  'Weather',
-                  style: TextStyle(fontSize: 20),
-                  ),
-                  onTap: () {
-                    _navigationBottonBar(1);
+                ListTile(
+                  leading: const Icon(Icons.home),
+                  title: const Text(
+                    'Home',
+                    style: TextStyle(fontSize: 20),
+                    ),
+                  onTap: () {                   
+                    _navigationBottonBar(0);
                     // Scaffold.of(context).closeDrawer();
-                  },
-              ),
+                    },
+                ),
 
-              ListTile(
-                leading: const Icon(Icons.person),
-                title: const Text(
-                  'Profile',
-                  style: TextStyle(fontSize: 20),
-                  ),
-                  onTap: () {
-                    _navigationBottonBar(2);
-                    
-                  },
-              ),
-            ],
+                ListTile(
+                  leading: const Icon(Icons.filter_drama),         
+                  title: const Text(
+                    'Weather',
+                    style: TextStyle(fontSize: 20),
+                    ),
+                    onTap: () {
+                      _navigationBottonBar(1);
+                      // Scaffold.of(context).closeDrawer();
+                    },
+                ),
+
+                ListTile(
+                  leading: const Icon(Icons.person),
+                  title: const Text(
+                    'Profile',
+                    style: TextStyle(fontSize: 20),
+                    ),
+                    onTap: () {
+                      _navigationBottonBar(2);
+                      
+                    },
+                ),
+              ],
+            ),
           ),
         ),
+    
+      bottomNavigationBar: GNav(
+        selectedIndex: _selectedIndex,
+        backgroundColor: Colors.black26,
+        color: Colors.white,
+        gap: 8,
+        activeColor: Colors.white,
+        tabBackgroundColor: const Color.fromARGB(255, 90, 90, 90),
+        padding: const EdgeInsets.all(16),   
+        
+        onTabChange: _navigationBottonBar,
+        tabs: const [
+          GButton(icon: Icons.home, text: 'Home',),
+          GButton(icon: Icons.filter_drama, text: 'Weather'),
+          GButton(icon: Icons.person, text: 'Profile'),
+        ]
       ),
-  
-    bottomNavigationBar: GNav(
-      selectedIndex: _selectedIndex,
-      backgroundColor: Colors.transparent,
-      color: Colors.white,
-      gap: 8,
-      activeColor: Colors.white,
-      tabBackgroundColor: const Color.fromARGB(255, 90, 90, 90),
-      padding: const EdgeInsets.all(16),   
-      
-      onTabChange: _navigationBottonBar,
-      tabs: const [
-        GButton(icon: Icons.home, text: 'Home',),
-        GButton(icon: Icons.filter_drama, text: 'Weather'),
-        GButton(icon: Icons.person, text: 'Profile'),
-      ]
-    ),
 
-    body: _pages[_selectedIndex],
+      body: _pages[_selectedIndex],
     
 
 );
