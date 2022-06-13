@@ -141,7 +141,7 @@ class _WeatherState extends State<Weather> {
                           // style: TextStyle(color: Colors.black),
                           ),
                         trailing: Text(
-                            style: TextStyle(color: Colors.white),tempe+'\u00B0'+'C'),
+                            style: TextStyle(color: Colors.white),tempe),
                       ),
                     ),
           
@@ -234,7 +234,7 @@ class _WeatherState extends State<Weather> {
   int pre = 0;
 
   Future<void> _search() async {
-    final response = await _dataService.getWeather(_cityTextController.text);
+    final response = await _dataService.getWeather(_cityTextController.text,'','');
     setState((){});
     
 
@@ -246,7 +246,7 @@ class _WeatherState extends State<Weather> {
     descr = response.weather![0].description!;
     hum = hu.toString();
     press = pre.toString() + ' hPa';
-    tempe = tem.toString();
+    tempe = tem.toString() +'\u00B0'+'C';
     
   }
 

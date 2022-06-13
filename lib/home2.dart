@@ -17,48 +17,14 @@ class _homePageState extends State<homePage> {
 
   void getCurrentLocation()async{
     Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+    var lati = position.latitude;
+    var longi = position.longitude;
     setState(() {
-      lat = "$position.latitude";
-      long = "$position.longitude";
+      lat = lati.toString();
+      long = longi.toString();
     });
   }
 
-  Future<Position> _determinePosition() async {
-  bool serviceEnabled;
-  LocationPermission permission;
-
-  // Test if location services are enabled.
-  serviceEnabled = await Geolocator.isLocationServiceEnabled();
-  if (!serviceEnabled) {
-    // Location services are not enabled don't continue
-    // accessing the position and request users of the 
-    // App to enable the location services.
-    return Future.error('Location services are disabled.');
-  }
-
-  permission = await Geolocator.checkPermission();
-  if (permission == LocationPermission.denied) {
-    permission = await Geolocator.requestPermission();
-    if (permission == LocationPermission.denied) {
-      // Permissions are denied, next time you could try
-      // requesting permissions again (this is also where
-      // Android's shouldShowRequestPermissionRationale 
-      // returned true. According to Android guidelines
-      // your App should show an explanatory UI now.
-      return Future.error('Location permissions are denied');
-    }
-  }
-  
-  if (permission == LocationPermission.deniedForever) {
-    // Permissions are denied forever, handle appropriately. 
-    return Future.error(
-      'Location permissions are permanently denied, we cannot request permissions.');
-  } 
-
-  // When we reach here, permissions are granted and we can
-  // continue accessing the position of the device.
-  return await Geolocator.getCurrentPosition();
-}
 
   @override
   Widget build(BuildContext context) {
@@ -67,6 +33,7 @@ class _homePageState extends State<homePage> {
 
     // _determinePosition();
     getCurrentLocation();
+     _search();
     
 
     final height = MediaQuery.of(context).size.height;
@@ -89,7 +56,7 @@ class _homePageState extends State<homePage> {
                   child: Column(
                     children: [
                       Text(
-                        'Location',
+                        place,
                         style: TextStyle(
                           fontSize: 30.0,
                           fontWeight: FontWeight.w900,
@@ -99,10 +66,10 @@ class _homePageState extends State<homePage> {
                         Padding(
                           padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
                           child: Text(
-                            '58',
+                            tempe,
                             style: TextStyle(
                               color: Colors.purple,
-                              fontSize: 100.0,
+                              fontSize: 60.0,
                               fontWeight: FontWeight.w900,
                               fontFamily: 'Pacifico-Regular'
                             ),
@@ -110,15 +77,15 @@ class _homePageState extends State<homePage> {
 
                           ),
                           
-                          Text(
-                            lat,
-                            style: TextStyle(
-                              color: Color.fromARGB(123, 155, 39, 176),
-                              fontSize: 14.0,
-                              fontWeight: FontWeight.w900,
-                              fontFamily: 'Pacifico-Regular'
-                            ),
-                            )
+                          // Text(
+                          //   'Latitude: $lat, Longitude: $long',
+                          //   style: TextStyle(
+                          //     color: Color.fromARGB(123, 155, 39, 176),
+                          //     fontSize: 14.0,
+                          //     fontWeight: FontWeight.w900,
+                          //     fontFamily: 'Pacifico-Regular'
+                          //   ),
+                          //   )
 
 
                     ],
@@ -216,7 +183,7 @@ class _homePageState extends State<homePage> {
                       // style: TextStyle(color: Colors.black),
                       ),
                     subtitle: Text(
-                        style: TextStyle(color: Colors.white),tempe+'\u00B0'+'C'),
+                        style: TextStyle(color: Colors.white),tempe),
                   ),
                 ),
       
@@ -311,7 +278,7 @@ class _homePageState extends State<homePage> {
   final _dataService = DataService();
 
   Future<void> _search() async {
-    final response = await _dataService.getWeather('');
+    final response = await _dataService.getWeather('',lat,long);
     setState((){});
     
 
@@ -323,7 +290,7 @@ class _homePageState extends State<homePage> {
     descr = response.weather![0].description!;
     hum = hu.toString();
     press = pre.toString() + ' hPa';
-    tempe = tem.toString();
+    tempe = tem.toString() +'\u00B0'+'C';
     
   }
 }
