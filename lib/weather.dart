@@ -10,9 +10,7 @@ class Weather extends StatefulWidget {
 }
 
 class _WeatherState extends State<Weather> {
-  String place = '';
-  String descr = '';
-  String tempe = '';
+  
   final _cityTextController = TextEditingController();
   final _dataService = DataService();
 
@@ -63,10 +61,7 @@ class _WeatherState extends State<Weather> {
                   child: ListView(
                     children: [
                       ListTile(
-                        leading: Icon(
-                          Icons.home,
-                          // color: Colors.black,
-                          ),
+                        leading:FaIcon(FontAwesomeIcons.locationDot),
                         title: Text(
                           'Place',
                           // style: TextStyle(color: Colors.black),
@@ -77,10 +72,46 @@ class _WeatherState extends State<Weather> {
                       ListTile(
                         leading: FaIcon(FontAwesomeIcons.cloud),
                         title: Text(
+                          'Description',
+                          // style: TextStyle(color: Colors.black),
+                          ),
+                        trailing: Text(descr),
+                      ),
+
+                      ListTile(
+                        leading: FaIcon(FontAwesomeIcons.temperatureHalf),
+                        title: Text(
                           'Temperature',
                           // style: TextStyle(color: Colors.black),
                           ),
+                        trailing: Text(tempe+'\u00B0'+'C'),
+                      ),
+
+                      ListTile(
+                        leading: FaIcon(FontAwesomeIcons.temperatureHalf),
+                        title: Text(
+                          'Perceived',
+                          // style: TextStyle(color: Colors.black),
+                          ),
                         trailing: Text('52'+'\u00B0'+'C'),
+                      ),
+
+                      ListTile(
+                        leading: FaIcon(FontAwesomeIcons.tachometer),
+                        title: Text(
+                          'Pressure',
+                          // style: TextStyle(color: Colors.black),
+                          ),
+                        trailing: Text(press),
+                      ),
+
+                      ListTile(
+                        leading: FaIcon(FontAwesomeIcons.tint),
+                        title: Text(
+                          'Humidity',
+                          // style: TextStyle(color: Colors.black),
+                          ),
+                        trailing: Text(hum),
                       ),
                     ],
                   ),
@@ -93,9 +124,13 @@ class _WeatherState extends State<Weather> {
     
   }
 
+  String place = '';
+  String descr = '';
+  String tempe = '';
   String hum = '';
   String press = '';
   double tem = 0;
+  double tem1 = 0;
   int hu = 0;
   int pre = 0;
 
@@ -105,13 +140,14 @@ class _WeatherState extends State<Weather> {
     
 
     place = response.name!;
-    tem = response.main!.temp!;
+    tem1 = response.main!.temp!;
+    tem = double.parse(((tem1 - 32) * 5/9).toStringAsFixed(2));
     hu = response.main!.humidity!;
     pre = response.main!.pressure!;
     descr = response.weather![0].description!;
     hum = hu.toString();
-    press = pre.toString();
-    tempe = tem.toString() + 'F';
+    press = pre.toString() + ' hPa';
+    tempe = tem.toString();
     
   }
 

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:weather_app/data_service.dart';
 
 class homePage extends StatefulWidget {
   const homePage({Key? key}) : super(key: key);
@@ -62,22 +64,22 @@ class _homePageState extends State<homePage> {
                       );
     return Stack(
       children: [
-        Positioned(
-          bottom: height / 2.4,
-          child: Image.asset(
-            'assets/new-york.jpg',
-            height: height,
-            fit: BoxFit.fill,
-            ),
-          ),
-        Positioned(
-          bottom: 0,
-          child: Container(
-            height: height / 2.4,
-            width: widht,
-            color: Color(0xFF2D2C35),
-          )
-          ),
+        // Positioned(
+        //   bottom: height / 2.4,
+        //   child: Image.asset(
+        //     'assets/new-york.jpg',
+        //     height: height,
+        //     fit: BoxFit.fill,
+        //     ),
+        //   ),
+        // Positioned(
+        //   bottom: 0,
+        //   child: Container(
+        //     height: height / 2.4,
+        //     width: widht,
+        //     color: Colors.white,
+        //   )
+        //   ),
         Scaffold(
           backgroundColor: Colors.black45,
           body: Padding(
@@ -116,6 +118,70 @@ class _homePageState extends State<homePage> {
 
                     ),
                   ),
+
+                          Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: ListView(
+                    children: [
+                      ListTile(
+                        leading:FaIcon(FontAwesomeIcons.locationDot),
+                        title: Text(
+                          'Place',
+                          // style: TextStyle(color: Colors.black),
+                          ),
+                        trailing: Text(place),
+                      ),
+
+                      ListTile(
+                        leading: FaIcon(FontAwesomeIcons.cloud),
+                        title: Text(
+                          'Description',
+                          // style: TextStyle(color: Colors.black),
+                          ),
+                        trailing: Text(descr),
+                      ),
+
+                      ListTile(
+                        leading: FaIcon(FontAwesomeIcons.temperatureHalf),
+                        title: Text(
+                          'Temperature',
+                          // style: TextStyle(color: Colors.black),
+                          ),
+                        trailing: Text(tempe+'\u00B0'+'C'),
+                      ),
+
+                      ListTile(
+                        leading: FaIcon(FontAwesomeIcons.temperatureHalf),
+                        title: Text(
+                          'Perceived',
+                          // style: TextStyle(color: Colors.black),
+                          ),
+                        trailing: Text('52'+'\u00B0'+'C'),
+                      ),
+
+                      ListTile(
+                        leading: FaIcon(FontAwesomeIcons.tachometer),
+                        title: Text(
+                          'Pressure',
+                          // style: TextStyle(color: Colors.black),
+                          ),
+                        trailing: Text(press),
+                      ),
+
+                      ListTile(
+                        leading: FaIcon(FontAwesomeIcons.tint),
+                        title: Text(
+                          'Humidity',
+                          // style: TextStyle(color: Colors.black),
+                          ),
+                        trailing: Text(hum),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+        
                 ]
                 ),
             ),
@@ -123,5 +189,35 @@ class _homePageState extends State<homePage> {
         ),
       ],
       );
+      
+  }
+
+  String place = '';
+  String descr = '';
+  String tempe = '';
+  String hum = '';
+  String press = '';
+  double tem = 0;
+  double tem1 = 0;
+  int hu = 0;
+  int pre = 0;
+
+  final _dataService = DataService();
+
+  Future<void> _search() async {
+    final response = await _dataService.getWeather('');
+    setState((){});
+    
+
+    place = response.name!;
+    tem1 = response.main!.temp!;
+    tem = double.parse(((tem1 - 32) * 5/9).toStringAsFixed(2));
+    hu = response.main!.humidity!;
+    pre = response.main!.pressure!;
+    descr = response.weather![0].description!;
+    hum = hu.toString();
+    press = pre.toString() + ' hPa';
+    tempe = tem.toString();
+    
   }
 }
