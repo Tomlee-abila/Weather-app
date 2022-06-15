@@ -25,7 +25,7 @@ class _WeatherState extends State<Weather> {
         children: [
           
           Container(
-            color: Color(0xEE2D2F49),
+            color: Color.fromARGB(255, 255, 255, 255),
             height: height,
             width: widht,
             padding: const EdgeInsets.all(20.0),
@@ -45,12 +45,34 @@ class _WeatherState extends State<Weather> {
               ),
                 ),
                     
-                ElevatedButton(onPressed: () {
-                _search(); 
-                place = _cityTextController.text;
-                },
-                
-                child: Text('Search', style: TextStyle(color: Colors.black),)),
+
+              SizedBox(height: 10.0),
+              GestureDetector(
+              onTap: () {
+                _search();
+              },
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 40.0),
+                child: Container(
+                  padding: EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                    color: Color(0xE7382E4E),
+                    borderRadius: BorderRadius.circular(33),
+                  ),
+                  child: Center(
+                      child: Text(
+                        'Search',
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 255, 255, 255),
+                          // fontWeight: FontWeight.bold,
+                          // fontSize: 20,
+                        ),
+                      )
+                  ),
+                ),
+              ),
+            ),
+
               ]
               ),
 
