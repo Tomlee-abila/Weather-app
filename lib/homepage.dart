@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
     
     
     return Scaffold(     
-      backgroundColor: Color(0xE7382E4E), 
+      backgroundColor: Color.fromARGB(231, 255, 255, 255), 
       resizeToAvoidBottomInset : false,
       extendBodyBehindAppBar: true,
       extendBody: true,
@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> {
           IconButton( 
             onPressed: () {}, 
             icon: const CircleAvatar(
-              backgroundImage: AssetImage('assets/Tom.webp'),
+              backgroundImage: NetworkImage('https://i.pravatar.cc/300'),
               backgroundColor: Colors.black26,
             )
           )

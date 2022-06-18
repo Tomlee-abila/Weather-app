@@ -32,7 +32,7 @@ class _ProfileState extends State<Profile> {
             
             const Center(
               child: CircleAvatar(
-                backgroundImage: AssetImage('assets/Tom.webp'),
+                backgroundImage: NetworkImage('https://i.pravatar.cc/300'),
                 radius: 40.0,
               ),
             ),

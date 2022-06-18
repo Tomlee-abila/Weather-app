@@ -273,26 +273,3 @@ class _WeatherState extends State<Weather> {
   }
 
 }
-
-
-//  child:  Column(
-//                   mainAxisAlignment: MainAxisAlignment.center,
-//                   crossAxisAlignment: CrossAxisAlignment.center,
-//                   children: [
-//                     Container(
-//                       padding: EdgeInsets.fromLTRB(50, 0, 50, 0),
-//                       child: TextField(
-//                       controller: _cityTextController,
-//                       decoration: InputDecoration(
-//                         labelText: 'enter city name',
-//                         suffixIcon: Icon(Icons.search),
-//                       ),
-//                   ),
-//                     ),
-                        
-//                     ElevatedButton(onPressed: () {
-//                     _search(); 
-//                     place = _cityTextController.text;
-//                     }, child: Text('Search')),
-//                   ]
-//                   ),
