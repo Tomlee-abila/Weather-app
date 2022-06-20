@@ -26,6 +26,8 @@ class _homePageState extends State<homePage> {
 
 
 
+
+
 //Profile Page
 class profile extends StatefulWidget {
   const profile({Key? key}) : super(key: key);
@@ -75,6 +77,7 @@ class _profileState extends State<profile> {
             ),
           ),
 
+          //Time
           Positioned(
             bottom: -(height/3),
             left: 0,
@@ -88,6 +91,8 @@ class _profileState extends State<profile> {
               ),
             ),
           ),
+        
+          //
         ],
       ),
     );   
