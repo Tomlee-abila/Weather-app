@@ -6,6 +6,7 @@ import 'models.dart';
 class DataService {
   Future<WeatherResponse> getWeather(String city, String lat, String long) async {
      // https://api.openweathermap.org/data/2.5/weather?q=kisumu&appid=78a9a8ccd663901bcb952cca2401c9ce
+    //  http://openweathermap.org/img/wn/10d@2x.png
 
      final queryParameters;
      
