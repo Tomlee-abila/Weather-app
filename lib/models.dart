@@ -48,30 +48,38 @@ class WeatherResponse {
 }
 
 class Weather {
+  String? main;
   String? description;
+  String? icon;
 
-  Weather({this.description});
+  Weather({this.main, this.description, this.icon});
 
   Weather.fromJson(Map<String, dynamic> json) {
+    main = json['main'];
     description = json['description'];
+    icon = json['icon'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['main'] = this.main;
     data['description'] = this.description;
+    data['icon'] = this.icon;
     return data;
   }
 }
 
 class Main {
   double? temp;
+  double? feelsLike;
   int? pressure;
   int? humidity;
 
-  Main({this.temp, this.pressure, this.humidity});
+  Main({this.temp, this.feelsLike, this.pressure, this.humidity});
 
   Main.fromJson(Map<String, dynamic> json) {
     temp = json['temp'];
+    feelsLike = json['feels_like'];
     pressure = json['pressure'];
     humidity = json['humidity'];
   }
@@ -79,13 +87,12 @@ class Main {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['temp'] = this.temp;
+    data['feels_like'] = this.feelsLike;
     data['pressure'] = this.pressure;
     data['humidity'] = this.humidity;
     return data;
   }
 }
-
-
 
 
 

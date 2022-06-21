@@ -412,13 +412,23 @@ class _secondBodyState extends State<secondBody> {
 
             child: TextField(
               controller: _cityTextController,
+
+              textInputAction: TextInputAction.search,
+              onSubmitted: (value) {
+                _search();
+              },
+
               decoration: InputDecoration(
+                border: InputBorder.none,
                 labelText: 'enter city name',                
-                icon: Icon(
-                  Icons.search,
-                  color: Colors.white,
-                  size: 30,                  
-                  ),
+                icon: GestureDetector(
+                  onTap: _search,
+                  child: Icon(
+                    Icons.search,
+                    color: Colors.white,
+                    size: 30,                  
+                    ),
+                ),
               ),
             ),
 
@@ -448,32 +458,32 @@ class _secondBodyState extends State<secondBody> {
             child: Stack(
               clipBehavior: Clip.none,
               children: [
-                //Description
-                Positioned(
-                  top: 20,
-                  left: 20,
+                // //Description
+                // Positioned(
+                //   top: 20,
+                //   left: 20,
                   
-                  child: Center(
-                    child: Container(
-                      decoration: BoxDecoration(
+                //   child: Center(
+                //     child: Container(
+                //       decoration: BoxDecoration(
                         
-                      ),
+                //       ),
                       
-                      child: Text(                          
-                        'Description',
-                        style: TextStyle(
-                          fontSize: 25,
-                          color: Color.fromARGB(176, 0, 128, 255),
-                          fontWeight: FontWeight.bold,
-                        ),
-                        ),
-                    ),
-                  ),
-                ),
+                //       child: Text(                          
+                //         descr,
+                //         style: TextStyle(
+                //           fontSize: 25,
+                //           color: Color.fromARGB(176, 0, 128, 255),
+                //           fontWeight: FontWeight.bold,
+                //         ),
+                //         ),
+                //     ),
+                //   ),
+                // ),
 
                 //Temperature
                   Positioned(
-                  bottom: 20,
+                  bottom: 50,
                   left: 20,
                   
                   child: Center(
@@ -483,9 +493,9 @@ class _secondBodyState extends State<secondBody> {
                       ),
                       
                       child: Text(                          
-                        '31',
+                        tempe,
                         style: TextStyle(
-                          fontSize: 70,
+                          fontSize: 55,
                           color: Color.fromARGB(255, 255, 123, 0),
                           fontWeight: FontWeight.bold,
                         ),
@@ -494,17 +504,26 @@ class _secondBodyState extends State<secondBody> {
                   ),
                 ),
 
+                Positioned(
+                    bottom: 40,
+                    right: 10,
+                    child: Text(
+                                style: TextStyle(color: Color.fromARGB(189, 5, 168, 5)),                          
+                                descr),
+                  ),
+
+
                 //Cloud
                   Positioned(
                   top: -40,
                   right: -40,
                   
                   child: Container(
-                    height: 200,
-                    width: 200,
+                    height: 180,
+                    width: 180,
                     decoration: BoxDecoration(
                       image: DecorationImage(                
-                        image: NetworkImage('https://openweathermap.org/img/wn/10d@4x.png'),
+                        image: NetworkImage('https://openweathermap.org/img/wn/$icon@4x.png'),
                         fit: BoxFit.cover,                    
                         ),
                       ),                       
@@ -523,7 +542,7 @@ class _secondBodyState extends State<secondBody> {
                       ),
                       
                       child: Text(                          
-                        'place',
+                        place,
                         style: TextStyle(
                           fontSize: 30,
                           color: Color.fromARGB(176, 0, 128, 255),
@@ -595,7 +614,7 @@ class _secondBodyState extends State<secondBody> {
                               // style: TextStyle(color: Colors.black),
                               ),
                             trailing: Text(
-                                style: TextStyle(color: Color.fromARGB(189, 5, 168, 5)),place),
+                                style: TextStyle(color: Color.fromARGB(176, 0, 128, 255)),place),
                           ),
                         ),
                             
@@ -627,7 +646,7 @@ class _secondBodyState extends State<secondBody> {
                               'Description',                          
                               ),
                             trailing: Text(
-                              style: TextStyle(color: Color.fromARGB(189, 5, 168, 5)),                          
+                              style: TextStyle(color: Color.fromARGB(176, 0, 128, 255)),                          
                               descr),
                           ),
                         ),
@@ -661,7 +680,7 @@ class _secondBodyState extends State<secondBody> {
                               // style: TextStyle(color: Colors.black),
                               ),
                             trailing: Text(
-                                style: TextStyle(color: Color.fromARGB(189, 5, 168, 5)),tempe),
+                                style: TextStyle(color: Color.fromARGB(176, 0, 128, 255)),tempe),
                           ),
                         ),
                             
@@ -693,7 +712,7 @@ class _secondBodyState extends State<secondBody> {
                               // style: TextStyle(color: Colors.black),
                               ),
                             trailing: Text(
-                                style: TextStyle(color: Color.fromARGB(189, 5, 168, 5)),'52'+'\u00B0'+'C'),
+                                style: TextStyle(color: Color.fromARGB(176, 0, 128, 255)),percive),
                           ),
                         ),
                             
@@ -725,7 +744,7 @@ class _secondBodyState extends State<secondBody> {
                               // style: TextStyle(color: Colors.black),
                               ),
                             trailing: Text(
-                                style: TextStyle(color: Color.fromARGB(189, 5, 168, 5)),press),
+                                style: TextStyle(color: Color.fromARGB(176, 0, 128, 255)),press),
                           ),
                         ),
                             
@@ -757,7 +776,7 @@ class _secondBodyState extends State<secondBody> {
                               // style: TextStyle(color: Colors.black),
                               ),
                             trailing: Text(
-                                style: TextStyle(color: Color.fromARGB(189, 5, 168, 5)),hum),
+                                style: TextStyle(color: Color.fromARGB(176, 0, 128, 255)),hum),
                           ),
                         ),
                       ],
@@ -779,10 +798,13 @@ class _secondBodyState extends State<secondBody> {
   String place = '';
   String descr = '';
   String tempe = '';
+  String percive = '';
   String hum = '';
   String press = '';
+  String icon = '';
   double tem = 0;
   double tem1 = 0;
+  double feels = 0;
   int hu = 0;
   int pre = 0;
 
@@ -793,12 +815,16 @@ class _secondBodyState extends State<secondBody> {
 
     place = response.name!;
     tem1 = response.main!.temp!;
+    feels = response.main!.feelsLike!;
+    feels = double.parse(((feels - 32) * 5/9).toStringAsFixed(2));
     tem = double.parse(((tem1 - 32) * 5/9).toStringAsFixed(2));
     hu = response.main!.humidity!;
     pre = response.main!.pressure!;
     descr = response.weather![0].description!;
-    hum = hu.toString();
+    icon = response.weather![0].icon!;
+    hum = hu.toString() + '%';
     press = pre.toString() + ' hPa';
     tempe = tem.toString() +'\u00B0'+'C';
+    percive = feels.toString() +'\u00B0'+'C';
   }
 }

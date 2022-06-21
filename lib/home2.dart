@@ -183,6 +183,15 @@ class _profileState extends State<profile> {
                     ),
                   ),
 
+                  //cloud description
+                  Positioned(
+                    bottom: 50,
+                    right: 20,
+                    child: Text(
+                                style: TextStyle(color: Color.fromARGB(189, 5, 168, 5)),                          
+                                descr),
+                  ),
+
                   //Cloud
                    Positioned(
                     top: -40,
@@ -193,7 +202,7 @@ class _profileState extends State<profile> {
                       width: 200,
                       decoration: BoxDecoration(
                         image: DecorationImage(                
-                          image: NetworkImage('https://openweathermap.org/img/wn/10d@4x.png'),
+                          image: NetworkImage('https://openweathermap.org/img/wn/$icon@4x.png'),
                           fit: BoxFit.cover,                    
                           ),
                         ),                       
@@ -284,7 +293,7 @@ class _profileState extends State<profile> {
                               // style: TextStyle(color: Colors.black),
                               ),
                             trailing: Text(
-                                style: TextStyle(color: Color.fromARGB(189, 5, 168, 5)),place),
+                                style: TextStyle(color: Color.fromARGB(176, 0, 128, 255)),place),
                           ),
                         ),
                             
@@ -316,7 +325,7 @@ class _profileState extends State<profile> {
                               'Description',                          
                               ),
                             trailing: Text(
-                              style: TextStyle(color: Color.fromARGB(189, 5, 168, 5)),                          
+                              style: TextStyle(color: Color.fromARGB(176, 0, 128, 255)),                          
                               descr),
                           ),
                         ),
@@ -350,7 +359,7 @@ class _profileState extends State<profile> {
                               // style: TextStyle(color: Colors.black),
                               ),
                             trailing: Text(
-                                style: TextStyle(color: Color.fromARGB(189, 5, 168, 5)),tempe),
+                                style: TextStyle(color: Color.fromARGB(176, 0, 128, 255)),tempe),
                           ),
                         ),
                             
@@ -382,7 +391,7 @@ class _profileState extends State<profile> {
                               // style: TextStyle(color: Colors.black),
                               ),
                             trailing: Text(
-                                style: TextStyle(color: Color.fromARGB(189, 5, 168, 5)),'52'+'\u00B0'+'C'),
+                                style: TextStyle(color: Color.fromARGB(176, 0, 128, 255)),percive),
                           ),
                         ),
                             
@@ -414,7 +423,7 @@ class _profileState extends State<profile> {
                               // style: TextStyle(color: Colors.black),
                               ),
                             trailing: Text(
-                                style: TextStyle(color: Color.fromARGB(189, 5, 168, 5)),press),
+                                style: TextStyle(color: Color.fromARGB(176, 0, 128, 255)),press),
                           ),
                         ),
                             
@@ -446,7 +455,7 @@ class _profileState extends State<profile> {
                               // style: TextStyle(color: Colors.black),
                               ),
                             trailing: Text(
-                                style: TextStyle(color: Color.fromARGB(189, 5, 168, 5)),hum),
+                                style: TextStyle(color: Color.fromARGB(176, 0, 128, 255)),hum),
                           ),
                         ),
                       ],
@@ -526,10 +535,13 @@ class _profileState extends State<profile> {
   String place = '';
   String descr = '';
   String tempe = '';
+  String percive = '';
   String hum = '';
   String press = '';
+  String icon = '';
   double tem = 0;
   double tem1 = 0;
+  double feels = 0;
   int hu = 0;
   int pre = 0;
 
@@ -542,13 +554,17 @@ class _profileState extends State<profile> {
 
     place = response.name!;
     tem1 = response.main!.temp!;
+    feels = response.main!.feelsLike!;
+    feels = double.parse(((feels - 32) * 5/9).toStringAsFixed(2));
     tem = double.parse(((tem1 - 32) * 5/9).toStringAsFixed(2));
     hu = response.main!.humidity!;
     pre = response.main!.pressure!;
     descr = response.weather![0].description!;
-    hum = hu.toString();
+    icon = response.weather![0].icon!;
+    hum = hu.toString() + '%';;
     press = pre.toString() + ' hPa';
     tempe = tem.toString() +'\u00B0'+'C';
+    percive = feels.toString() +'\u00B0'+'C';
     
   }
 

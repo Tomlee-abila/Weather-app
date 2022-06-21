@@ -66,9 +66,22 @@ class _HomePageState extends State<HomePage> {
         ),
 
       drawer: Container(
+        
         child: Drawer(
             child: Container(
-              color: Colors.transparent,
+               decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Color(0xFF99CC99),
+                    Color(0xFFFFCC00),
+                    Color(0xFF99CCFF),
+                    
+                    // Color(0xFF003399),
+                  ],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ),
+              ),
               child: ListView(
                 
                 
