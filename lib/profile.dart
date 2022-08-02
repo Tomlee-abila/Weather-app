@@ -29,25 +29,19 @@ class profileBodyTwo extends StatelessWidget {
           top: 0,
           left: 0,
           right: 0,
-           child: Container(
+          child: Container(
             height: height,
             width: widht,
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [
-                  Color(0xFF99CC99),
-                  Color(0xFFFFCC00),
-                  Color(0xFF99CCFF),
-                  
-                  // Color(0xFF003399),
-                ],
+                colors: [Color(0xFF115ea4), Color(0xFF115ea4)],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
               ),
             ),
-                   ),
-         ),
-        
+          ),
+        ),
+
 
         // ProfileImage
         Positioned(
@@ -84,10 +78,8 @@ class profileBodyTwo extends StatelessWidget {
                   width: 330,                     
                   padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(215, 255, 255, 255),
-                    border: Border.all(
-                      color: Color.fromARGB(107, 255, 255, 255),                         
-                    ),
+                    color: Color.fromARGB(87, 255, 255, 255),
+                    
                     borderRadius: BorderRadius.all(Radius.circular(10))
                   ),
                   child: ListTile(
@@ -104,11 +96,11 @@ class profileBodyTwo extends StatelessWidget {
                       ),
                     
                     title: Text(
-                      style: TextStyle(color: Color.fromARGB(189, 5, 168, 5)),
+                      style: TextStyle(color: Colors.white),
                       'Name',                          
                       ),
                     subtitle: Text(
-                      style: TextStyle(color: const Color.fromARGB(255, 90, 90, 90), fontSize: 20),                          
+                      style: TextStyle(color: const Color.fromRGBO(255, 255, 255, 1), fontSize: 20),                          
                       'Tomlee Osbon Otieno'),
                   ),
                 ),
@@ -123,10 +115,8 @@ class profileBodyTwo extends StatelessWidget {
                   width: 330,                     
                   padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(215, 255, 255, 255),
-                    border: Border.all(
-                      color: Color.fromARGB(107, 255, 255, 255),                         
-                    ),
+                    color: Color.fromARGB(87, 255, 255, 255),
+                    
                     borderRadius: BorderRadius.all(Radius.circular(10))
                   ),
                   child: ListTile(
@@ -143,11 +133,11 @@ class profileBodyTwo extends StatelessWidget {
                       ),
                     
                     title: Text(
-                      style: TextStyle(color: Color.fromARGB(189, 5, 168, 5)),
+                      style: TextStyle(color: Colors.white),
                       'Birthday',                          
                       ),
                     subtitle: Text(
-                      style: TextStyle(color: const Color.fromARGB(255, 90, 90, 90), fontSize: 20),                          
+                      style: TextStyle(color: Color.fromRGBO(255, 255, 255, 1), fontSize: 20),                          
                       'May 02, 1997'),
                   ),
                 ),
@@ -163,10 +153,8 @@ class profileBodyTwo extends StatelessWidget {
                   width: 330,                     
                   padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(215, 255, 255, 255),
-                    border: Border.all(
-                      color: Color.fromARGB(107, 255, 255, 255),                         
-                    ),
+                    color: Color.fromARGB(87, 255, 255, 255),
+                    
                     borderRadius: BorderRadius.all(Radius.circular(10))
                   ),
                   child: ListTile(
@@ -183,11 +171,11 @@ class profileBodyTwo extends StatelessWidget {
                       ),
                     
                     title: Text(
-                      style: TextStyle(color: Color.fromARGB(189, 5, 168, 5)),
+                      style: TextStyle(color: Colors.white),
                       'Phone Number',                          
                       ),
                     subtitle: Text(
-                      style: TextStyle(color: const Color.fromARGB(255, 90, 90, 90), fontSize: 20),                          
+                      style: TextStyle(color: const Color.fromRGBO(255, 255, 255, 1), fontSize: 20),                          
                       '+254700565647'),
                   ),
                 ),
@@ -202,10 +190,8 @@ class profileBodyTwo extends StatelessWidget {
                   width: 330,                     
                   padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(215, 255, 255, 255),
-                    border: Border.all(
-                      color: Color.fromARGB(107, 255, 255, 255),                         
-                    ),
+                    color: Color.fromARGB(87, 255, 255, 255),
+                    
                     borderRadius: BorderRadius.all(Radius.circular(10))
                   ),
                   child: ListTile(
@@ -222,11 +208,11 @@ class profileBodyTwo extends StatelessWidget {
                       ),
                     
                     title: Text(
-                      style: TextStyle(color: Color.fromARGB(189, 5, 168, 5)),
+                      style: TextStyle(color: Colors.white),
                       'Email',                          
                       ),
                     subtitle: Text(
-                      style: TextStyle(color: const Color.fromARGB(255, 90, 90, 90), fontSize: 20),                          
+                      style: TextStyle(color: const Color.fromRGBO(255, 255, 255, 1), fontSize: 20),                          
                       'tomleeabila@gmail.com'),
                   ),
                 ),
