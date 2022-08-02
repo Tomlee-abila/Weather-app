@@ -14,12 +14,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   int _selectedIndex = 0;
   String word = 'Home';
 
-  void _navigationBottonBar(int index){
-    setState((){
+  void _navigationBottonBar(int index) {
+    setState(() {
       _selectedIndex = index;
       word = _words[index];
     });
@@ -29,139 +28,124 @@ class _HomePageState extends State<HomePage> {
     homePage(),
     Weather(),
     Profile(),
-    
   ];
 
   final List<String> _words = [
     'Home',
     'Weather',
     'Profile',
-    
   ];
 
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
-    final widht = MediaQuery.of(context).size.height;    
-    
-    return Scaffold(     
-      backgroundColor: Color.fromARGB(231, 255, 255, 255), 
-      resizeToAvoidBottomInset : false,
+    final widht = MediaQuery.of(context).size.height;
+
+    return Scaffold(
+      backgroundColor: Color.fromARGB(231, 255, 255, 255),
+      resizeToAvoidBottomInset: false,
       extendBodyBehindAppBar: true,
       extendBody: true,
-
       appBar: AppBar(
-        backgroundColor: Colors.black45,
+        backgroundColor: const Color(0xFF115ea4),
         elevation: 0,
         title: Center(child: Text(word)),
-        actions: [ 
-          IconButton( 
-            onPressed: () {}, 
-            icon: const CircleAvatar(
-              backgroundImage: NetworkImage('https://i.pravatar.cc/300'),
-              backgroundColor: Colors.black26,
-            )
-          )
+        actions: [
+          IconButton(
+              onPressed: () {},
+              icon: const CircleAvatar(
+                backgroundImage: NetworkImage('https://i.pravatar.cc/300'),
+                backgroundColor: Colors.white,
+              ))
         ],
-        ),
+      ),
+      drawer: Drawer(
+        child: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Color(0xFF115ea4),
+                Color(0xFF115ea4)
 
-      drawer: Container(
-        
-        child: Drawer(
-            child: Container(
-               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    Color(0xFF99CC99),
-                    Color(0xFFFFCC00),
-                    Color(0xFF99CCFF),
-                    
-                    // Color(0xFF003399),
-                  ],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                ),
-              ),
-              child: ListView(
-                
-                
-      
-                children: [
-                  const DrawerHeader(
-                    child: ImageIcon(
-                      AssetImage("assets/weather2.png"),
-                      // color: Color(0xFF3A5A98), 
-                      ),
-                  ),
-                  
-      
-                  ListTile(
-                    leading: const Icon(Icons.home),
-                    title: const Text(
-                      'Home',
-                      style: TextStyle(fontSize: 20),
-                      ),
-                    onTap: () {                   
-                      _navigationBottonBar(0);
-                      // Scaffold.of(context).closeDrawer();
-                      },
-                  ),
-      
-                  ListTile(
-                    leading: const Icon(Icons.filter_drama),         
-                    title: const Text(
-                      'Weather',
-                      style: TextStyle(fontSize: 20),
-                      ),
-                      onTap: () {
-                        _navigationBottonBar(1);
-                        // Scaffold.of(context).closeDrawer();
-                      },
-                  ),
-      
-                  ListTile(
-                    leading: const Icon(Icons.person),
-                    title: const Text(
-                      'Profile',
-                      style: TextStyle(fontSize: 20),
-                      ),
-                      onTap: () {
-                        _navigationBottonBar(2);
-                        
-                      },
-                  ),
-                ],
-              ),
+                // Color(0xFF003399),
+              ],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
             ),
           ),
-      ),
-    
-      bottomNavigationBar: Container(
-        decoration: new BoxDecoration(
-              color: Color(0xE7382E4E),
-              borderRadius: new BorderRadius.only(
-                topLeft: const Radius.circular(20.0),
-                topRight: const Radius.circular(20.0),
-              )
-            ),
-        child: GNav(
-          selectedIndex: _selectedIndex,
-          backgroundColor: Color.fromARGB(151, 3, 120, 3),
-          color: Colors.white,
-          gap: 8,
-          activeColor: Colors.white,
-          tabBackgroundColor: const Color.fromARGB(255, 90, 90, 90),
-          padding: const EdgeInsets.all(16),   
-          
-          onTabChange: _navigationBottonBar,
-          tabs: const [
-            GButton(icon: Icons.home, text: 'Home',),
-            GButton(icon: Icons.filter_drama, text: 'Weather'),
-            GButton(icon: Icons.person, text: 'Profile'),
-          ]
+          child: ListView(
+            children: [
+              const DrawerHeader(
+                child: ImageIcon(
+                  AssetImage("assets/weather2.png"),
+                  color: Colors.white,
+                  // color: Color(0xFF3A5A98),
+                ),
+              ),
+              ListTile(
+                leading: const Icon(Icons.home),
+                iconColor: Colors.white,
+                title: const Text(
+                  'Home',
+                  style: TextStyle(fontSize: 20, color: Colors.white),
+                ),
+                onTap: () {
+                  _navigationBottonBar(0);
+                  // Scaffold.of(context).closeDrawer();
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.filter_drama),
+                iconColor: Colors.white,
+                title: const Text(
+                  'Weather',
+                  style: TextStyle(fontSize: 20, color: Colors.white),
+                ),
+                onTap: () {
+                  _navigationBottonBar(1);
+                  // Scaffold.of(context).closeDrawer();
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.person),
+                iconColor: Colors.white,
+                title: const Text(
+                  'Profile',
+                  style: TextStyle(fontSize: 20, color: Colors.white),
+                ),
+                onTap: () {
+                  _navigationBottonBar(2);
+                },
+              ),
+            ],
+          ),
         ),
       ),
-
+      bottomNavigationBar: Container(
+        decoration: new BoxDecoration(
+            color: Color(0xE7382E4E),
+            borderRadius: new BorderRadius.only(
+              topLeft: const Radius.circular(20.0),
+              topRight: const Radius.circular(20.0),
+            )),
+        child: GNav(
+            selectedIndex: _selectedIndex,
+            backgroundColor: Color(0xFF115ea4),
+            color: Colors.white,
+            gap: 8,
+            activeColor: Colors.white,
+            tabBackgroundColor: const Color(0x40d9d9d9),
+            padding: const EdgeInsets.all(16),
+            onTabChange: _navigationBottonBar,
+            tabs: const [
+              GButton(
+                icon: Icons.home,
+                text: 'Home',
+              ),
+              GButton(icon: Icons.filter_drama, text: 'Weather'),
+              GButton(icon: Icons.person, text: 'Profile'),
+            ]),
+      ),
       body: Stack(
         clipBehavior: Clip.none,
         children: [
@@ -183,16 +167,13 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Positioned(
-            top: 0,
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: _pages[_selectedIndex]
-            ),
+              top: 0,
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: _pages[_selectedIndex]),
         ],
       ),
-    
-
-);
+    );
   }
 }
