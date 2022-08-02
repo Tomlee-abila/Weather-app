@@ -367,28 +367,22 @@ class _secondBodyState extends State<secondBody> {
     children: [
 
       //Background Color
-        Positioned(
-        bottom: 0,
-        top: 0,
-        left: 0,
-        right: 0,
+       Positioned(
+          bottom: 0,
+          top: 0,
+          left: 0,
+          right: 0,
           child: Container(
-          height: height,
-          width: widht,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Color(0xFF99CC99),
-                Color(0xFFFFCC00),
-                Color(0xFF99CCFF),
-                
-                // Color(0xFF003399),
-              ],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
+            height: height,
+            width: widht,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Color(0xFF115ea4), Color(0xFF115ea4)],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
             ),
           ),
-                  ),
         ),
 
       //searchBar
@@ -401,10 +395,10 @@ class _secondBodyState extends State<secondBody> {
           child: Container(
             padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
             decoration: BoxDecoration(
-              color: Color.fromARGB(107, 255, 255, 255),
-              border: Border.all(
-                color: Color.fromARGB(57, 77, 62, 62),                         
-              ),
+                  color: Color(0x1ad9d9d9),
+                  border: Border.all(
+                    color: Color.fromARGB(57, 77, 62, 62),
+                  ),
               borderRadius: BorderRadius.all(Radius.circular(10))
             ),              
             // height: 60,
@@ -446,10 +440,10 @@ class _secondBodyState extends State<secondBody> {
         child: Center(
           child: Container(
             decoration: BoxDecoration(
-              color: Color.fromARGB(107, 255, 255, 255),
-              border: Border.all(
-                color: Color.fromARGB(57, 77, 62, 62),                         
-              ),
+                  color: Color(0x1ad9d9d9),
+                  border: Border.all(
+                    color: Color.fromARGB(57, 77, 62, 62),
+                  ),
               borderRadius: BorderRadius.all(Radius.circular(20))
             ),              
             height: 160,
@@ -473,7 +467,7 @@ class _secondBodyState extends State<secondBody> {
                 //         descr,
                 //         style: TextStyle(
                 //           fontSize: 25,
-                //           color: Color.fromARGB(176, 0, 128, 255),
+                //           color: Colors.white,
                 //           fontWeight: FontWeight.bold,
                 //         ),
                 //         ),
@@ -496,7 +490,7 @@ class _secondBodyState extends State<secondBody> {
                         tempe,
                         style: TextStyle(
                           fontSize: 55,
-                          color: Color.fromARGB(255, 255, 123, 0),
+                          color: Color.fromARGB(255, 255, 255, 255),
                           fontWeight: FontWeight.bold,
                         ),
                         ),
@@ -508,7 +502,7 @@ class _secondBodyState extends State<secondBody> {
                     bottom: 40,
                     right: 10,
                     child: Text(
-                                style: TextStyle(color: Color.fromARGB(189, 5, 168, 5)),                          
+                                style: TextStyle(color: Colors.white),                          
                                 descr),
                   ),
 
@@ -545,7 +539,7 @@ class _secondBodyState extends State<secondBody> {
                         place,
                         style: TextStyle(
                           fontSize: 30,
-                          color: Color.fromARGB(176, 0, 128, 255),
+                          color: Colors.white,
                           fontWeight: FontWeight.bold,
                         ),
                         ),
@@ -570,10 +564,10 @@ class _secondBodyState extends State<secondBody> {
             width: MediaQuery.of(context).size.width,
             padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
             decoration: BoxDecoration(
-              color: Color.fromARGB(107, 255, 255, 255),
-              border: Border.all(
-                color: Color.fromARGB(57, 77, 62, 62),                         
-              ),
+                  color: Color(0x1ad9d9d9),
+                  border: Border.all(
+                    color: Color.fromARGB(57, 77, 62, 62),
+                  ),
               borderRadius: BorderRadius.all(Radius.circular(20))
             ),      
             child: Stack(
@@ -590,12 +584,9 @@ class _secondBodyState extends State<secondBody> {
                       children: [
                         Container(                
                           decoration: BoxDecoration(
-                            color: Color.fromARGB(107, 255, 255, 255),
-                            border: Border.all(
-                              color: Color.fromARGB(107, 255, 255, 255),                         
-                            ),
-                            borderRadius: BorderRadius.all(Radius.circular(10))
-                          ),
+                                  color: Color(0x40d9d9d9),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10))),
                           child: ListTile(
                             leading:Container(
                                 width: 40,
@@ -609,12 +600,12 @@ class _secondBodyState extends State<secondBody> {
                                 ),
                               ),
                             title: Text(
-                                style: TextStyle(color: Color.fromARGB(189, 5, 168, 5),),
+                                style: TextStyle(color: Colors.white,),
                               'Place',
                               // style: TextStyle(color: Colors.black),
                               ),
                             trailing: Text(
-                                style: TextStyle(color: Color.fromARGB(176, 0, 128, 255)),place),
+                                style: TextStyle(color: Colors.white),place),
                           ),
                         ),
                             
@@ -622,12 +613,9 @@ class _secondBodyState extends State<secondBody> {
                         Container(                      
                             padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                           decoration: BoxDecoration(
-                            color: Color.fromARGB(107, 255, 255, 255),
-                            border: Border.all(
-                              color: Color.fromARGB(107, 255, 255, 255),                         
-                            ),
-                            borderRadius: BorderRadius.all(Radius.circular(10))
-                          ),
+                                  color: Color(0x40d9d9d9),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10))),
                           child: ListTile(
                             leading: Container(
                                 width: 40,
@@ -642,11 +630,11 @@ class _secondBodyState extends State<secondBody> {
                               ),
                             
                             title: Text(
-                              style: TextStyle(color: Color.fromARGB(189, 5, 168, 5)),
+                              style: TextStyle(color: Colors.white),
                               'Description',                          
                               ),
                             trailing: Text(
-                              style: TextStyle(color: Color.fromARGB(176, 0, 128, 255)),                          
+                              style: TextStyle(color: Colors.white),                          
                               descr),
                           ),
                         ),
@@ -655,12 +643,9 @@ class _secondBodyState extends State<secondBody> {
                         Container(
                             padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                           decoration: BoxDecoration(
-                            color: Color.fromARGB(107, 255, 255, 255),
-                            border: Border.all(
-                              color: Color.fromARGB(107, 255, 255, 255),                         
-                            ),
-                            borderRadius: BorderRadius.all(Radius.circular(10))
-                          ),
+                                  color: Color(0x40d9d9d9),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10))),
                           child: ListTile(
                             leading: Container(
                                 width: 40,
@@ -675,12 +660,12 @@ class _secondBodyState extends State<secondBody> {
                               ),
                             
                             title: Text(
-                                style: TextStyle(color: Color.fromARGB(189, 5, 168, 5)),
+                                style: TextStyle(color: Colors.white),
                               'Temperature',
                               // style: TextStyle(color: Colors.black),
                               ),
                             trailing: Text(
-                                style: TextStyle(color: Color.fromARGB(176, 0, 128, 255)),tempe),
+                                style: TextStyle(color: Colors.white),tempe),
                           ),
                         ),
                             
@@ -688,12 +673,9 @@ class _secondBodyState extends State<secondBody> {
                         Container(
                             padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                           decoration: BoxDecoration(
-                            color: Color.fromARGB(107, 255, 255, 255),
-                            border: Border.all(
-                              color: Color.fromARGB(107, 255, 255, 255),                         
-                            ),
-                            borderRadius: BorderRadius.all(Radius.circular(10))
-                          ),
+                                  color: Color(0x40d9d9d9),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10))),
                           child: ListTile(
                             leading:Container(
                                 width: 40,
@@ -707,12 +689,12 @@ class _secondBodyState extends State<secondBody> {
                                 ),
                               ),
                             title: Text(
-                                style: TextStyle(color: Color.fromARGB(189, 5, 168, 5)),
+                                style: TextStyle(color: Colors.white),
                               'Perceived',
                               // style: TextStyle(color: Colors.black),
                               ),
                             trailing: Text(
-                                style: TextStyle(color: Color.fromARGB(176, 0, 128, 255)),percive),
+                                style: TextStyle(color: Colors.white),percive),
                           ),
                         ),
                             
@@ -720,12 +702,9 @@ class _secondBodyState extends State<secondBody> {
                         Container(
                             padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                           decoration: BoxDecoration(
-                            color: Color.fromARGB(107, 255, 255, 255),
-                            border: Border.all(
-                              color: Color.fromARGB(107, 255, 255, 255),                         
-                            ),
-                            borderRadius: BorderRadius.all(Radius.circular(10))
-                          ),
+                                  color: Color(0x40d9d9d9),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10))),
                           child: ListTile(
                             leading: Container(
                                 width: 40,
@@ -739,12 +718,12 @@ class _secondBodyState extends State<secondBody> {
                                 ),
                               ),
                             title: Text(
-                                style: TextStyle(color: Color.fromARGB(189, 5, 168, 5)),
+                                style: TextStyle(color: Colors.white),
                               'Pressure',
                               // style: TextStyle(color: Colors.black),
                               ),
                             trailing: Text(
-                                style: TextStyle(color: Color.fromARGB(176, 0, 128, 255)),press),
+                                style: TextStyle(color: Colors.white),press),
                           ),
                         ),
                             
@@ -752,12 +731,9 @@ class _secondBodyState extends State<secondBody> {
                         Container(
                             padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                           decoration: BoxDecoration(
-                            color: Color.fromARGB(107, 255, 255, 255),
-                            border: Border.all(
-                              color: Color.fromARGB(107, 255, 255, 255),                         
-                            ),
-                            borderRadius: BorderRadius.all(Radius.circular(10))
-                          ),
+                                  color: Color(0x40d9d9d9),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10))),
                           child: ListTile(
                             leading: Container(
                                 width: 40,
@@ -771,12 +747,12 @@ class _secondBodyState extends State<secondBody> {
                                 ),
                               ),
                             title: Text(
-                                style: TextStyle(color: Color.fromARGB(189, 5, 168, 5)),
+                                style: TextStyle(color: Colors.white),
                               'Humidity',
                               // style: TextStyle(color: Colors.black),
                               ),
                             trailing: Text(
-                                style: TextStyle(color: Color.fromARGB(176, 0, 128, 255)),hum),
+                                style: TextStyle(color: Colors.white),hum),
                           ),
                         ),
                       ],
