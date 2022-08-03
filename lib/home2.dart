@@ -35,6 +35,12 @@ class _profileState extends State<profile> {
   var lat = '';
   var long = '';
 
+  @override
+  void initState() {
+    super.initState();
+    getCurrentLocation();
+  }
+
   void getCurrentLocation() async {
     Position position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.high);
@@ -43,13 +49,15 @@ class _profileState extends State<profile> {
     setState(() {
       lat = lati.toString();
       long = longi.toString();
+      print('lat+""+long');
+      print(lat+""+long);
+      _search(lat,long);
     });
   }
 
+
   @override
   Widget build(BuildContext context) {
-    getCurrentLocation();
-    _search();
 
     final height = MediaQuery.of(context).size.height;
     final widht = MediaQuery.of(context).size.height;
@@ -67,7 +75,7 @@ class _profileState extends State<profile> {
             width: widht,
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [Color(0xFF115ea4), Color(0xFF115ea4)],
+                colors: [Color(0xFF115ea4), Color(0xff3a8dda)],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
               ),
@@ -88,7 +96,7 @@ class _profileState extends State<profile> {
                     color: Color.fromARGB(57, 77, 62, 62),
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(20))),
-              height: 180,
+              height: 160,
               width: 350,
               child: Stack(clipBehavior: Clip.none, children: [
                 //Time
@@ -203,9 +211,10 @@ class _profileState extends State<profile> {
         Positioned(
           bottom: 0,
           left: 0,
+          top: 280,
           child: Center(
             child: Container(
-              height: 450,
+              height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
               padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
               decoration: BoxDecoration(
@@ -222,8 +231,8 @@ class _profileState extends State<profile> {
                     right: 0,
                     left: 0,
                     child: Center(
-                      child: Container(
-                        height: 460,
+                      child: SizedBox(
+                        height: MediaQuery.of(context).size.height,
                         child: ListView(
                           children: [
                             Container(
@@ -433,61 +442,6 @@ class _profileState extends State<profile> {
           ),
         ),
 
-        // // ProfileImage
-        // Positioned(
-        //   bottom: 550,
-        //   left: 0,
-        //   right: 0,
-        //   child: Center(
-        //     child: Container(
-        //       width: widht/6,
-        //       height: widht/6,
-        //       decoration: BoxDecoration(
-        //         borderRadius: BorderRadius.circular(100),
-        //         boxShadow: [
-        //           BoxShadow(
-        //             color: Color.fromARGB(189, 5, 168, 5),
-        //             spreadRadius: 2,
-        //           )
-        //         ],
-        //         image: DecorationImage(
-        //           image: AssetImage('https://i.pravatar.cc/300'),
-        //           fit: BoxFit.cover,
-        //           ),
-        //       ),
-        //     ),
-        //   ),
-        // ),
-
-        //Time
-        // Positioned(
-        //   bottom: 400,
-        //   left: 0,
-        //   right: 0,
-        //   child: Center(
-        //     child: Container(
-        //       decoration: BoxDecoration(
-        //         boxShadow: [
-        //           BoxShadow(
-        //             color: Colors.grey.withOpacity(0.32),
-        //             spreadRadius: 0.02,
-        //             blurRadius: 7,
-        //             offset: Offset(4.0, 9.0),
-        //           ),
-        //         ],
-        //       ),
-
-        //       child: Text(
-        //         // DateTime.now().toString()
-        //         DateFormat.yMMMMEEEEd().format(DateTime.now()),
-        //         // DateFormat.yMMMMEEEEd().format(DateTime.now()),
-        //         // DateFormat('yyyy-MM-dd KK:mm:ss a').format(DateTime.now()),
-        //         ),
-        //     ),
-        //   ),
-        // ),
-
-        //
       ],
     );
   }
@@ -507,13 +461,18 @@ class _profileState extends State<profile> {
 
   final _dataService = DataService();
 
-  Future<void> _search() async {
+  Future<void> _search(lat,long) async {
     final response = await _dataService.getWeather('', lat, long);
+    print('response');
+    print(response.toJson());
+    print(response.name);
+    print(response.weather![0].icon);
+    print(response.weather![0].description!);
     setState(() {});
 
     place = response.name!;
     tem1 = response.main!.temp!;
-    feels = response.main!.feelsLike!;
+    feels = response.main!.feelsLike! ?? 0.0;
     feels = double.parse(((feels - 32) * 5 / 9).toStringAsFixed(2));
     tem = double.parse(((tem1 - 32) * 5 / 9).toStringAsFixed(2));
     hu = response.main!.humidity!;
